@@ -4,6 +4,7 @@
 #include <pthread.h>
 
 #define MATRIX_SIZE 3
+// #define DISPLAY_MATRIX
 
 void printMatrix(int matrix[MATRIX_SIZE][MATRIX_SIZE]) {
     for (int i = 0; i < MATRIX_SIZE; i++) {
@@ -17,7 +18,7 @@ void printMatrix(int matrix[MATRIX_SIZE][MATRIX_SIZE]) {
 }
 
 int main(int argc, char *argv[]) {
-    // srand(time(0));
+    srand(time(NULL));
 
     // matrix A, B
     int matrixA[MATRIX_SIZE][MATRIX_SIZE];
@@ -47,11 +48,13 @@ int main(int argc, char *argv[]) {
         }
     }
 
+#ifdef DISPLAY_MATRIX
     printMatrix(matrixA);
     printMatrix(matrixB);
 
     printf("----------\n");
 
     printMatrix(matrixC);
+#endif
     return 0;
 }
