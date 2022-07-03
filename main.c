@@ -18,7 +18,6 @@ void printMatrix(int matrix[MATRIX_SIZE][MATRIX_SIZE]) {
 
 int main(int argc, char *argv[]) {
     srand(time(NULL));
-
     // matrix A, B
     int matrixA[MATRIX_SIZE][MATRIX_SIZE];
     int matrixB[MATRIX_SIZE][MATRIX_SIZE];
@@ -30,6 +29,11 @@ int main(int argc, char *argv[]) {
             matrixB[i][j] = rand() % 10;
         }
     }
+
+    /////////////////////////////////////////////////////////////////////////////////
+    //                               single thread                                 //
+    /////////////////////////////////////////////////////////////////////////////////
+
 
     // multiplication
     // Definition: 
@@ -47,17 +51,33 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    // multiplication of matrix using thread
-    pthread_t *threads;
-    threads = (pthread_t*)malloc(MATRIX_SIZE * MATRIX_SIZE * sizeof(pthread_t));
-
 #ifdef DISPLAY_MATRIX
+    printf("matrix multilplication\n");
+    printf("---Matrix A---\n");
     printMatrix(matrixA);
+    printf("---Matrix B---\n");
     printMatrix(matrixB);
 
+    printf("---Matrix C---\n");
+    printMatrix(matrixC);
+#endif
+
+    /////////////////////////////////////////////////////////////////////////////////
+    //                                 multi thread                                //
+    /////////////////////////////////////////////////////////////////////////////////
+
+    // multiplication of matrix using thread
+    int count = 0;
+    int* data = NULL;
+    pthread_t* threads;
+    threads = (pthread_t*)malloc(MATRIX_SIZE * MATRIX_SIZE * sizeof(pthread_t));
+
+
+#ifdef DISPLAY_MATRIX
+    
     printf("----------\n");
 
-    printMatrix(matrixC);
+    // printMatrix(matrixC);
 #endif
     return 0;
 }
