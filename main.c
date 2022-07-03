@@ -3,18 +3,17 @@
 #include <time.h>
 #include <pthread.h>
 
-#define MATRIX_SIZE 3
-// #define DISPLAY_MATRIX
+#define MATRIX_SIZE 4
+#define DISPLAY_MATRIX
 
 void printMatrix(int matrix[MATRIX_SIZE][MATRIX_SIZE]) {
+    printf("----------\n");
     for (int i = 0; i < MATRIX_SIZE; i++) {
         for (int j = 0; j < MATRIX_SIZE; j++) {
             printf("%d ", matrix[i][j]);
         }
         printf("\n");
     }
-
-    printf("----------\n");
 }
 
 int main(int argc, char *argv[]) {
@@ -47,6 +46,10 @@ int main(int argc, char *argv[]) {
             matrixC[i][j] = sum;
         }
     }
+
+    // multiplication of matrix using thread
+    pthread_t *threads;
+    threads = (pthread_t*)malloc(MATRIX_SIZE * MATRIX_SIZE * sizeof(pthread_t));
 
 #ifdef DISPLAY_MATRIX
     printMatrix(matrixA);
