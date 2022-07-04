@@ -6,6 +6,20 @@
 #define MATRIX_SIZE 4
 #define DISPLAY_MATRIX
 
+// function to compute the entry c_ij
+void* multi(void* arg) {
+    int* data = (int*)arg;
+    
+    for (int i = 1; i <= data[0]; i++)
+        k += data[i]*data[i + data[0]];
+    
+    int* p = (int*)malloc(sizeof(int));
+    *p = k;
+
+    // terminate a thread, return value by pass as a pointer
+    pthread_exit(p);
+}
+
 void printMatrix(int matrix[MATRIX_SIZE][MATRIX_SIZE]) {
     printf("----------\n");
     for (int i = 0; i < MATRIX_SIZE; i++) {
@@ -90,7 +104,7 @@ int main(int argc, char *argv[]) {
             for (int i = 0; i < MATRIX_SIZE; i++)
                 data[i + MATRIX_SIZE + 1] = matrixB[i][col];
 
-            // create thread for calculate entries c_ij
+            // create thread, each thread computes single element entries of c
             pthread_create(&threads[count++], NULL, multi, (void*)(data));
 
         }
