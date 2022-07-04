@@ -9,6 +9,7 @@
 // function to compute the entry c_ij
 void* multi(void* arg) {
     int* data = (int*)arg;
+    int k = 0;
     
     for (int i = 1; i <= data[0]; i++)
         k += data[i]*data[i + data[0]];
