@@ -113,7 +113,6 @@ int main(int argc, char *argv[]) {
     }
 
 #ifdef DISPLAY_MATRIX
-    
     printf("---Matrix C---\n");
     for (int i = 0; i < MATRIX_SIZE * MATRIX_SIZE; i++) {
         void* result;
@@ -128,8 +127,6 @@ int main(int argc, char *argv[]) {
     }
 
     printf("----------\n");
-
-    // printMatrix(matrixC);
 #endif
     return 0;
 }
