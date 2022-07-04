@@ -112,6 +112,18 @@ int main(int argc, char *argv[]) {
 
 #ifdef DISPLAY_MATRIX
     
+    for (int i = 0; i < MATRIX_SIZE * MATRIX_SIZE; i++) {
+        void* result;
+
+        // join thread, get all result from each thread
+        pthread_join(threads[i], &result);
+
+        int* p = (int*)result;
+        printf("%d", *result);
+        if ((i + 1) % MATRIX_SIZE == 0)
+            printf("\n");
+    }
+
     printf("----------\n");
 
     // printMatrix(matrixC);
