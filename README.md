@@ -13,3 +13,15 @@ The entry of matrix C can compute by </br></br>
 
 Time complexity of matrix multiplication will be O(m × n × p) </br>
 but in this program i use square matrix therefore time complexity is O(n^3) where n is size of matrix
+
+## How to use
+This program i use g++ version 9.3.0 </br>
+complie file with
+
+```bash
+$ make
+```
+and, run it
+```bash
+$ ./main
+```
