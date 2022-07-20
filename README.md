@@ -16,9 +16,20 @@ Time complexity of matrix multiplication will be O(m × n × p) </br>
 but in this program i use square matrix therefore time complexity is O(n^3) where n is size of matrix
 
 ### How it work?
-
+create matrix MARTIX_SIZE × MATRIX_SIZE
 ```c
+int matrixA[MATRIX_SIZE][MATRIX_SIZE];
+int matrixB[MATRIX_SIZE][MATRIX_SIZE];
+```
 
+initialize matrix A and matrix B
+```c
+for (int i = 0; i < MATRIX_SIZE; i++) {
+    for (int j = 0; j < MATRIX_SIZE; j++) {
+        matrixA[i][j] = rand() % 10;
+        matrixB[i][j] = rand() % 10;
+    }
+}
 ```
 
 ## How to use
