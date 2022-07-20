@@ -2,6 +2,7 @@
 I'm trying to study the pthread of C language here ༼ つ ◕_◕ ༽つ
 
 ## Explain 
+### What is matrix?
 First of all, let's talk about the definition. </br>
 Let A be an m × n matrix, and B an n × p matrix </br>
 Let C be the product of matrix A and B, which C = AB and C is m × p matrix </br></br>
@@ -13,6 +14,12 @@ The entry of matrix C can compute by </br></br>
 
 Time complexity of matrix multiplication will be O(m × n × p) </br>
 but in this program i use square matrix therefore time complexity is O(n^3) where n is size of matrix
+
+### How it work?
+
+```c
+
+```
 
 ## How to use
 This program i use g++ version 9.3.0 </br>
