@@ -2,6 +2,7 @@
 I'm trying to study the pthread of C language here ༼ つ ◕_◕ ༽つ
 
 ## Explain 
+### What is matrix?
 First of all, let's talk about the definition. </br>
 Let A be an m × n matrix, and B an n × p matrix </br>
 Let C be the product of matrix A and B, which C = AB and C is m × p matrix </br></br>
@@ -13,3 +14,32 @@ The entry of matrix C can compute by </br></br>
 
 Time complexity of matrix multiplication will be O(m × n × p) </br>
 but in this program i use square matrix therefore time complexity is O(n^3) where n is size of matrix
+
+### How it work?
+create matrix MARTIX_SIZE × MATRIX_SIZE
+```c
+int matrixA[MATRIX_SIZE][MATRIX_SIZE];
+int matrixB[MATRIX_SIZE][MATRIX_SIZE];
+```
+
+initialize matrix A and matrix B
+```c
+for (int i = 0; i < MATRIX_SIZE; i++) {
+    for (int j = 0; j < MATRIX_SIZE; j++) {
+        matrixA[i][j] = rand() % 10;
+        matrixB[i][j] = rand() % 10;
+    }
+}
+```
+
+## How to use
+This program i use g++ version 9.3.0 </br>
+complie file with
+
+```bash
+$ make
+```
+and, run it
+```bash
+$ ./main
+```
